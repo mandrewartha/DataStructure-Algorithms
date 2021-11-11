@@ -9,3 +9,17 @@ const isPalindrome = str => {
     }
     return true;
 };
+
+
+// split, reverse, and join the array
+// return true or false
+function checkPalindrome(inputString) {
+    //split, reverse, join
+    const newString = inputString.split("").reverse().join("")
+    // check if equal
+    if (inputString === newString) {
+        return true
+    } else {
+        return false
+    }
+}
