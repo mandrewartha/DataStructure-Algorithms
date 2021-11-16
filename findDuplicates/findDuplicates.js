@@ -1,5 +1,54 @@
 const arry = [1, 2, 1, 3, 4, 3, 5];
 
+
+// find duplicates inside array and then return array without duplicates
+///////
+
+function findDuplicates(array) {
+    // track the number
+    const obj = {}
+    // empty variable for duplicate
+    let result = false
+    //loop through it
+    for (i=0; i< array.length; i++) {
+        
+        //check if value exists in object
+        // only push number once
+        if (obj[array[index]]) {
+            result = true
+            //break out of if statement if it is true
+            break
+        } 
+        //will push to the object if not in object already 
+        obj[array[index]] = true
+       
+    }
+    // if result 
+    if(result) {
+        console.log("duplicates exist")
+    } else{
+        console.log("Duplicates don't exist")
+    }
+ 
+
+};
+/////
+
+// return array only with duplicates
+const findDupArray = array => array.filter((item,index) => array.indexOf(item) !== index)
+
+const sampleArray = [1,2,3,3,6,6,8,9]
+console.log(findDupArray(sampleArray))
+
+//find array without the duplicates
+const findNotDups = array => array.filter((item, index) => array.indexOf(item) === index)
+console.log(findNotDups(sampleArray))
+
+
+////////
+
+
+
 const toFindDuplicates = arry => arry.filter((item, index) => arr.indexOf(item) !== index)
 const duplicateElementa = tofindDuplicates(arry);
 console.log(duplicateElements);
