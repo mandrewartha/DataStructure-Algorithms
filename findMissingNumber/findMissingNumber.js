@@ -5,37 +5,38 @@ const findMissingNumber = (arr, n) => {
     // middle element, and the element does not equal i + 1, then we
     // know the missing element is to the left (or it is the missing element)
 
-    let left = 0,
-        right = arr.length - 1;
+    //sort array
+    // adds scalability because now it can use unsorted arrays
+    let sorted = arr.sort()
+    console.log(sorted)
+    //binary search
+    let start = 0
+    let end = arr.length - 1
 
-    while (left <= right) {
-        const middle = Math.floor((left + right) / 2);
-
-        // check if middle value is immediately to the right
-        if (
-            (arr[middle + 1] && arr[middle] + 1 !== arr[middle + 1]) ||
-            (middle === arr.length - 1 && arr[middle] !== n) // edge case for end of array
-        ) {
-            return middle + 2;
-        }
-
-        // check if middle value is immediately to the left
-        if (
-            arr[middle] - 1 !== arr[middle - 1] ||
-            (middle == 0 && arr[middle] !== 1) // edge case for beginning of array
-        ) {
-            return middle + 1;
-        }
-
-        if (arr[middle] != middle + 1) {
-            // go left
-            right = middle - 1;
+    //don't want multiple loops for scalability.
+    // while loop will run only once
+    while(start <= end) {
+        //start in middle
+        // middle is the index of the array
+        let middle = Math.floor((start + end) / 2)
+        
+        //if number equals middle
+        // if number less
+        // if numer is more
+        // if number is not there
+        if(sorted[middle] === n) {
+            return true
+        } else if (sorted[middle] < n){
+            start = middle +1
         } else {
-            // go right
-            left = middle + 1;
-        }
+            end = middle - 1
+        } 
     }
-
-    // no missing number
-    return null;
+    //returning if missing or notreturn false
+    console.log("number not found")
+    return false
+    
 };
+
+array = [1,6,3,9,5,]
+findNumber(array, 6)
